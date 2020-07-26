@@ -8,10 +8,11 @@ import (
 
 func main() {
 	app := &cobra.Command{
-		Use:   "Codeforces File Generator",
+		Use:   "codef-gen",
 		Short: "Generated files for Codeforces from the template and copies the test cases",
 	}
 	app.AddCommand(printabout())
+	app.AddCommand(gentemps())
 	err := app.Execute()
 	if err != nil {
 		os.Exit(1)
