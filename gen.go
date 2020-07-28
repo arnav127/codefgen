@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"io/ioutil"
 	"log"
 	"os"
 
@@ -51,12 +52,15 @@ func generate(str string) {
 
 func writetemp(str string) {
 	problems := "ABCDEF"
+
+	filename, err := ioutil.ReadFile("~/.config/codef-gen/config")
+	check(err)
 	for i := 0; i < 6; i++ {
 		file, err := os.Create(str + "/" + string(problems[i]) + ".cpp")
 		check(err)
 		defer file.Close()
 
-		tempfile, err := os.Open("template.cpp")
+		tempfile, err := os.Open(string(filename))
 		check(err)
 		defer tempfile.Close()
 
