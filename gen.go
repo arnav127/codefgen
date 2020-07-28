@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"log"
 	"os"
 	"os/user"
 
@@ -34,9 +33,7 @@ func generate(str string) {
 	_, err := os.Stat(str)
 	if os.IsNotExist(err) {
 		errDir := os.MkdirAll(str, 0755)
-		if errDir != nil {
-			log.Fatal(err)
-		}
+		check(errDir)
 	}
 
 	for i := 0; i < 6; i++ {
@@ -54,9 +51,8 @@ func writetemp(str string) {
 	problems := "ABCDEF"
 
 	usr, err := user.Current()
-	if err != nil {
-		log.Fatal(err)
-	}
+	check(err)
+
 	filename := usr.HomeDir + "/.config/codef-gen/config"
 
 	for i := 0; i < 6; i++ {
