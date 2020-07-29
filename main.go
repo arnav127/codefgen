@@ -13,6 +13,7 @@ func main() {
 	}
 	app.AddCommand(printabout())
 	app.AddCommand(gentemps())
+	app.AddCommand(settemp())
 	err := app.Execute()
 	if err != nil {
 		os.Exit(1)
