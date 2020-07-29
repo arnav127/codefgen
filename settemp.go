@@ -42,5 +42,4 @@ func newtemplate() {
 	if errr != nil {
 		fmt.Println(errr)
 	}
-	// fmt.Println("Changed " + path + " to " + filename)
 }
