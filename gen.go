@@ -29,9 +29,8 @@ func check(e error) {
 }
 
 func generate(str string) {
-	// err := ioutil.WriteFile("/tmp/dat1", url, 0644)
 	problems := "ABCDEF"
-	// dirPath, _ := os.Getwd()
+
 	_, err := os.Stat(str)
 	if os.IsNotExist(err) {
 		errDir := os.MkdirAll(str, 0755)
@@ -39,6 +38,7 @@ func generate(str string) {
 			log.Fatal(err)
 		}
 	}
+
 	for i := 0; i < 6; i++ {
 		file, err := os.Create(str + "/" + string(problems[i]) + ".cpp")
 		check(err)
