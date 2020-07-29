@@ -2,9 +2,9 @@ package main
 
 import (
 	"bufio"
-	"io/ioutil"
 	"log"
 	"os"
+	"os/user"
 
 	"github.com/spf13/cobra"
 )
@@ -53,8 +53,12 @@ func generate(str string) {
 func writetemp(str string) {
 	problems := "ABCDEF"
 
-	filename, err := ioutil.ReadFile("~/.config/codef-gen/config")
-	check(err)
+	usr, err := user.Current()
+	if err != nil {
+		log.Fatal(err)
+	}
+	filename := usr.HomeDir + "/.config/codef-gen/config"
+
 	for i := 0; i < 6; i++ {
 		file, err := os.Create(str + "/" + string(problems[i]) + ".cpp")
 		check(err)
