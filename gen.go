@@ -2,8 +2,8 @@ package main
 
 import (
 	"bufio"
-	"log"
 	"os"
+	"os/user"
 
 	"github.com/spf13/cobra"
 )
@@ -28,16 +28,14 @@ func check(e error) {
 }
 
 func generate(str string) {
-	// err := ioutil.WriteFile("/tmp/dat1", url, 0644)
 	problems := "ABCDEF"
-	// dirPath, _ := os.Getwd()
+
 	_, err := os.Stat(str)
 	if os.IsNotExist(err) {
 		errDir := os.MkdirAll(str, 0755)
-		if errDir != nil {
-			log.Fatal(err)
-		}
+		check(errDir)
 	}
+
 	for i := 0; i < 6; i++ {
 		file, err := os.Create(str + "/" + string(problems[i]) + ".cpp")
 		check(err)
@@ -51,12 +49,18 @@ func generate(str string) {
 
 func writetemp(str string) {
 	problems := "ABCDEF"
+
+	usr, err := user.Current()
+	check(err)
+
+	filename := usr.HomeDir + "/.config/codef-gen/config"
+
 	for i := 0; i < 6; i++ {
 		file, err := os.Create(str + "/" + string(problems[i]) + ".cpp")
 		check(err)
 		defer file.Close()
 
-		tempfile, err := os.Open("template.cpp")
+		tempfile, err := os.Open(string(filename))
 		check(err)
 		defer tempfile.Close()
 
