@@ -1,4 +1,3 @@
 #!/bin/sh
-echo "Triggered from .go file"
-rm $2
+erm $2
 ln -s $1 $2
