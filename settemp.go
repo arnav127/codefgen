@@ -33,8 +33,8 @@ func newtemplate() {
 	usr, err := user.Current()
 	check(err)
 
-	filename := usr.HomeDir + "/.config/codef-gen/config"
-	script := usr.HomeDir + "/.config/codef-gen/stemp.sh"
+	filename := usr.HomeDir + "/.config/codefgen/config"
+	script := usr.HomeDir + "/.config/codefgen/stemp.sh"
 	cmd := exec.Command("/bin/sh", script, path, filename)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

@@ -53,7 +53,7 @@ func writetemp(str string) {
 	usr, err := user.Current()
 	check(err)
 
-	filename := usr.HomeDir + "/.config/codef-gen/config"
+	filename := usr.HomeDir + "/.config/codefgen/config"
 
 	for i := 0; i < 6; i++ {
 		file, err := os.Create(str + "/" + string(problems[i]) + ".cpp")

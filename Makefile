@@ -1,5 +1,5 @@
 all:
-	go build -o codef
+	go build -o codefgen
 	./install.sh
 clean:
-	rm codef
+	rm codefgen

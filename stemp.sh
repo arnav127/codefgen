@@ -1,3 +1,3 @@
 #!/bin/sh
-erm $2
+rm $2
 ln -s $1 $2
