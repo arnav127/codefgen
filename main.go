@@ -8,7 +8,7 @@ import (
 
 func main() {
 	app := &cobra.Command{
-		Use:   "codef-gen",
+		Use:   "codefgen",
 		Short: "Generated files for Codeforces from given template",
 	}
 	app.AddCommand(printabout())
