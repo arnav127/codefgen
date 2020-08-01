@@ -10,8 +10,8 @@ import (
 
 func gentemps() *cobra.Command {
 	return &cobra.Command{
-		Use:   "gen",
-		Short: "Generate templates. args: round-number",
+		Use:   "gen [contest number]",
+		Short: "Generate templates. args: contest-number",
 		RunE: func(app *cobra.Command, args []string) error {
 			generate(args[0])
 			writetemp(args[0])

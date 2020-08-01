@@ -8,8 +8,8 @@ import (
 
 func main() {
 	app := &cobra.Command{
-		Use:   "codefgen",
-		Short: "Generated files for Codeforces from given template",
+		Use:   "codefgen [options]",
+		Short: "Generated solution codes for Codeforces from given template",
 	}
 	app.AddCommand(printabout())
 	app.AddCommand(gentemps())
