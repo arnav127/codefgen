@@ -1,7 +1,7 @@
 [![Go Report Card](https://goreportcard.com/badge/arnav127/codefgen)](https://goreportcard.com/report/arnav127/codefgen) 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/gojp/goreportcard/blob/master/LICENSE)
 # Codefgen <br>
-* Generated templates and copies sample cases from Codeforces *     
+**Generated templates and copies sample cases from Codeforces**     
 Codefgen is a program written in go which can be used to generate folder structure and program files for Codechef contests.  
 
 When compiling from the source code, builing the program also executes the `install.sh` script which places the configuration files at the `~/.config/codefgen/` directory  
